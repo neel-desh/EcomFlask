@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+</head>
+<body>
+{% include 'navigationbar.html' %}
+<div>{{msg}}</div>
+
+<!-- Default form register -->
+<form class="text-center border border-light p-5" action="/addProduct" method="POST" enctype="multipart/form-data">
+    <p class="h4 mb-4">Add product</p>
+
+ 
+            <!-- First name -->
+    <input type="text" name="pname" id="defaultRegisterFormFirstName" class="form-control mb-4" placeholder="Product Name">
+    
+            <!-- Last name -->
+    <input type="text" name="pprice" id="defaultRegisterFormLastName" class="form-control mb-4" placeholder="Product Price">
+
+    <!-- E-mail -->
+    <input type="text" name="pdesc" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Product Description">
+
+    <!-- Password -->
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+        </div>
+        <div class="custom-file">
+          <input name="pimage" type="file" class="custom-file-input" id="inputGroupFile01"
+            aria-describedby="inputGroupFileAddon01">
+          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+      </div>
+    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+        Add only .jpg and .png urls other urls wont be considerd
+    </small>
+
+    <input type="number" name="pstock" class="form-control mb-4" placeholder="Stock QTY">
+    <select name="pcategory" class="browser-default custom-select">
+        <option selected>Select a category</option>
+        <option value="1">Men</option>
+        <option value="2">Women</option>
+        <option value="3">Electronics</option>
+        <option value="4">Mobile and Computers</option>
+      </select>
+
+    <!-- Sign up button -->
+    <input class="btn btn-success my-4 btn-block" type="submit" value="Add Product"></input>
+
+
+</form>
+
+
+</body>
+{% include 'footer.html' %}
+
+</html>

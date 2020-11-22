@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product description</title>
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+</head>
+<body>
+{% include 'navigationbar.html' %}
+
+
+<div class="container my-5 py-5z-depth-1">
+
+
+	<!--Section: Content-->
+	<section class="text-center">
+  
+	  <!-- Section heading -->
+	  <h3 class="font-weight-bold mb-5">Product Details</h3>
+  
+	  <div class="row">
+		<div class="col-lg-6">
+  
+		  <!--Carousel Wrapper-->
+		  <div id="carousel-thumb1" class="carousel slide carousel-fade carousel-thumbnails mb-5 pb-4" data-ride="carousel">
+  
+			<!--Slides-->
+			<div class="carousel-inner text-center text-md-left" role="listbox">
+			  <div class="carousel-item active">
+				<img src={{url_for('static', filename='uploads/'+data[4]) }}
+				  alt="First slide" class="img-fluid">
+			  </div>
+			</div>
+			<!--/.Slides-->
+  
+
+  
+		  </div>
+		  <!--/.Carousel Wrapper-->
+		  
+
+		  
+		</div>
+  
+		<div class="col-lg-5 text-center text-md-left">
+  
+		  <h2 class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-0 ml-4">{{data[1]}}</h2>
+		  <span class="badge badge-danger product mb-4 ml-xl-0 ml-4">bestseller</span>
+		  <span class="badge badge-success product mb-4 ml-2">SALE</span>
+  
+		  <h3 class="h3-responsive text-center text-md-left mb-5 ml-xl-0 ml-4">
+			<span class="red-text font-weight-bold">
+			  <strong>Rs {{data[2]}}</strong>
+			</span>
+
+		  </h3>
+  
+		  <div class="font-weight-normal">
+			
+			<p class="ml-xl-0 ml-4">{{data[3]}}</p>
+  
+			<p class="ml-xl-0 ml-4">
+			  <strong>Stock Available: </strong>{{data[5]}}</p>
+			
+			<div class="mt-5">
+			 
+	
+
+			  <div class="row mt-3 mb-4">
+				<div class="col-md-12 text-center text-md-left text-md-right">
+				  <a href="/addToCart?productId={{request.args.get('productId')}}" class="btn btn-primary btn-rounded">
+					<i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Add to cart</a>
+				</div>
+			  </div>
+			</div>
+  
+		  </div>
+  
+		</div>
+	  </div>
+  
+	</section>
+	<!--Section: Content-->
+  
+  
+  </div>
+
+
+
+</body>
+{% include 'footer.html' %}
+
+</html>
+

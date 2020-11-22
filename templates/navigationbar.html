@@ -1,0 +1,68 @@
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark primary-color lighten-1">
+    <a class="navbar-brand" href="/">Python CA2</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+      aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link" href="/">Home
+           
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link dropdown-toggle"  data-toggle="dropdown">Products</a>
+
+          <div class="dropdown-menu">
+              <a class="dropdown-item" href="/addProduct">Add Product</a>
+              <a class="dropdown-item" href="/editProducts">Edit Product</a>
+              
+          </div>
+        </li>
+        <li class="nav-item">
+            
+          <a class="nav-link" href="/cart">Cart<span><i class="fas fa-cart-plus">{{noOfItems}}</i></span></a>
+        </li>
+
+      </ul>
+      {% if not loggedIn %}
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+
+        <li class="nav-item avatar dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span><i class="fas fa-user"></i></span>
+         My Profile
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+            aria-labelledby="navbarDropdownMenuLink-55">
+            <h6 class="dropdown-header">Hello, User</h6>
+            <a class="dropdown-item" href="/loginForm">Login</a>
+            <a class="dropdown-item" href="/registerationForm">Register</a>
+            
+          </div>
+        </li>
+      </ul>
+      {% else %}
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+
+        <li class="nav-item avatar dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span><i class="fas fa-user"></i></span>
+         My Profile
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+            aria-labelledby="navbarDropdownMenuLink-55">
+            <h6 class="dropdown-header">Hello, {{firstName}}!</h6>
+            <a class="dropdown-item" href="/account/profile/edit">Edit Profile</a>
+            <a class="dropdown-item" href="/account/profile/changePassword">Change Password</a>
+            <a class="dropdown-item" href="/logout">Log out</a>
+          </div>
+        </li>
+      </ul>
+      {% endif %}
+    </div>
+  </nav>
+  <!--/.Navbar -->
