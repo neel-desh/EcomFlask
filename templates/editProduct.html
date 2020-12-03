@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
+    <title>Edit Product</title>
     <!-- Font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <!-- Google Fonts -->
@@ -23,20 +23,22 @@
 </head>
 <body>
 {% include 'navigationbar.html' %}
+<div>{{msg}}</div>
 
 <!-- Default form register -->
-<form class="text-center border border-light p-5" action="/addProduct" method="POST" enctype="multipart/form-data">
-    <p class="h4 mb-4">Add product</p>
+<form class="text-center border border-light p-5" action="/updateProductSave" method="POST" enctype="multipart/form-data">
+    <p class="h4 mb-4">Edit product</p>
 
+    <input type="hidden" name="productId" value="{{productId}}" id="defaultRegisterFormprodId" class="form-control mb-4" placeholder="Product ID">
  
             <!-- First name -->
-    <input type="text" name="pname" id="defaultRegisterFormFirstName" class="form-control mb-4" placeholder="Product Name">
+    <input type="text" name="pname" id="defaultRegisterFormFirstName" class="form-control mb-4" placeholder="{{data[1]}}">
     
             <!-- Last name -->
-    <input type="text" name="pprice" id="defaultRegisterFormLastName" class="form-control mb-4" placeholder="Product Price">
+    <input type="text" name="pprice" id="defaultRegisterFormLastName" class="form-control mb-4" placeholder="{{data[2]}}">
 
     <!-- E-mail -->
-    <input type="text" name="pdesc" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Product Description">
+    <input type="text" name="pdesc"  id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="{{data[3]}}">
 
     <!-- Password -->
     <div class="input-group">
@@ -52,8 +54,13 @@
     <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
         Add only .jpg and .png urls other urls wont be considerd
     </small>
-
-    <input type="number" name="pstock" class="form-control mb-4" placeholder="Stock QTY">
+    <div class="carousel-inner text-center text-md-left" role="listbox">
+        <div class="carousel-item active">
+          <img height="150px" width="200px" src={{url_for('static', filename='uploads/'+data[4]) }}
+            alt="First slide" class="img-fluid">
+        </div>
+      </div>
+    <input type="number" name="pstock" class="form-control mb-4" placeholder="{{data[5]}}">
     <select name="pcategory" class="browser-default custom-select">
         <option selected>Select a category</option>
         <option value="1">Men</option>
@@ -63,7 +70,7 @@
       </select>
 
     <!-- Sign up button -->
-    <input class="btn btn-success my-4 btn-block" type="submit" value="Add Product"></input>
+    <input class="btn btn-success my-4 btn-block" type="submit" value="Update Product"></input>
 
 
 </form>

@@ -47,8 +47,8 @@
 
               <p>Click on the pay now button and get your product deliver at your home.</p>
 
-              <a href="/paytm" class="btn btn-info btn-md waves-effect" role="button"><i
-                  class="fas fa-cash mr-2"></i>Pay now</a>
+              <button id="paid" onclick="myFunction()" class="btn btn-info btn-md waves-effect" role="button"><i
+                  class="fas fa-cash mr-2" ></i>Pay now</button>
 
             </div>
 
@@ -68,6 +68,18 @@
   </div>
 
 </body>
+<script type="text/javascript">
+  function myFunction() {
+        var x;
+        var r = confirm("You will be redirected to home page!");
+        if (r == true) {
+            //x = "Your Data is Cleared";
+            window.location.href = "/";
+        }
+   
+       
+    }
+    </script>
 {% include 'footer.html' %}
 
 </html>
